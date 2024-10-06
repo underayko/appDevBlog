@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Login</title>
+  <link rel="stylesheet" href="login.component.css">
+  <!-- Include Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Back Button with Icon -->
+    <!-- <div class="back-button-container">
+      <a routerLink="/" class="back-button"><i class="fas fa-arrow-left"></i></a>
+    </div> -->
+
+    <div class="login form">
+      <header>Login</header>
+      <form [formGroup]="applyForm" (submit)="Login()">
+        <input formControlName="username" type="text" placeholder="Enter your username">
+        <input formControlName="password" type="password" placeholder="Enter your password">
+        <input type="submit" class="button" value="Login">
+      </form>
+      <div class="signup">
+        <span class="signup">Don't have an account?
+          <label for="check"><a routerLink="/signup">Signup</a></label>
+        </span>
+        <div class="signup">
+            <label for="check"><a routerLink="/landingpage">Home</a></label>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ 
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <title>Document</title>
+   
+  </head>
+
+  <body style="overflow: hidden">
+  
+
+    <div
+      style="
+        min-height: 100vh;
+        overflow-y: hidden;
+        margin: 0;
+        /* font-family: 'Poppins', sans-serif; */
+      "
+      class="container-fluid d-flex justify-content-around align-items-center text-black bg-custom"
+    >
+      <div class="left-box">
+        <h1
+          style="
+            text-align: left;
+            font-size: 7rem;
+            margin-bottom: 20px;
+            /* font-family: 'Poppins', sans-serif; */
+          "
+        >
+          Welcome!
+        </h1>
+        <p style="text-align: left; margin-left: 20px; margin-top: 10px;" class="fs-3 fw-light">Let's unfold together.</p>
+      </div>
+      <div class="parent">
+
+      
+      <div class="login-container">
+        <div class="child">
+
+          <p id="icon-title" class="m-0 p-0 text-center fs-3">Unfold</p>
+      </div>
+
+        <p style="font-weight: 500;" class=" pb-lg-4 mt-3 text-center">
+          Log in to Customize Your Portfolio
+        </p>
+        <form
+          [formGroup]="applyForm"
+          (submit)="Login()"
+          class="d-flex flex-column align-items-center justify-content-center"
+          style="width: 20rem"
+        >
+          <div class="mb-3 form-floating">
+            <input
+              formControlName="email"
+              type="email"
+              class="form-control bg-custom text-black"
+              placeholder="example@test.com"
+              required
+              style="width: 20rem; height: 1rem;"
+
+            />
+            @if(Error == "Incorrect email"){
+            <div class="text-danger">Incorrect email</div>
+            } @else{
+            <div class="text-danger"></div>
+            }
+
+            <label class="text-bg-custom" for="floatingInput">Email address</label>
+          </div>
+
+          <div class="mb-3 form-floating">
+            <input
+              formControlName="password"
+              type="password"
+              class="form-control bg-custom text-black"
+              id="exampleInputPassword1"
+              placeholder="..."
+              required
+              style="width: 20rem"
+            />
+            @if(Error == "Incorrect password"){
+            <div class="text-danger">Incorrect password</div>
+            } @else{
+            <div class="text-danger"></div>
+            }
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+          </div>
+          <div class="container d-flex justify-content-center">
+            <button
+              type="submit"
+              class="btn btn-danger mb-3 mt-4 ms-0 me-0"
+              style="width: 29rem; padding-left: 20px;"
+            >
+              Log in <i class="cis-arrow-right"></i>
+            </button>
+          </div>
+          <p class="">
+            Create new account
+            <a
+              routerLink="/signup"
+              class="fw-bold text-danger"
+              style="color: #f5652f !important;"
+              >Here!</a
+            >
+          </p>
+        </form>
+      </div>
+    </div>
+    </div>
+    <style>
+      .btn {
+        background-color: #f5652f;
+        border: none;
+      }
+    </style>
+  </body>
+</html> -->

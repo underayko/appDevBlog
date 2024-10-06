@@ -1,0 +1,95 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Signup</title>
+  <link rel="stylesheet" href="signup.component.css">
+</head>
+<body>
+  <div class="container">
+    <div class="registration form">
+      <header>Signup</header>
+      <form novalidate [formGroup]="applyForm" (ngSubmit)="Signup()">
+        <div class="form-row">
+          <input formControlName="firstname" type="text" placeholder="First name">
+          <input formControlName="lastname" type="text" placeholder="Last name">
+        </div>
+        <div class="form-row">
+          <input formControlName="email" type="email" placeholder="Email">
+          <input formControlName="username" type="text" placeholder="Username">
+        </div>
+        <div class="form-row">
+          <input formControlName="password" type="password" placeholder="Password">
+          <input formControlName="confirmPassword" type="password" placeholder="Confirm password">
+        </div>
+        <div class="checkbox">
+          <input formControlName="agreeTerms" type="checkbox" id="agreeTerms">
+          <label for="agreeTerms">I agree to the Terms and Conditions</label>
+        </div>
+        <button type="submit" class="button">Sign Up</button>
+      </form>
+
+      <div class="signup">
+        <span class="signup">Already have an account?
+          <label for="check"><a routerLink="/login">Login</a></label>
+        </span>
+      </div>
+    </div>
+  </div>
+</body>
+</html> -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Signup</title>
+  <link rel="stylesheet" href="signup.component.css">
+</head>
+<body>
+  <div class="container">
+    <div class="registration form">
+      <header>Signup</header>
+      <form novalidate [formGroup]="applyForm" (ngSubmit)="Signup()">
+        <div class="form-row">
+          <input formControlName="firstname" type="text" placeholder="First name">
+          <input formControlName="lastname" type="text" placeholder="Last name">
+        </div>
+        <div class="form-row">
+          <input formControlName="email" type="email" placeholder="Email">
+          <input formControlName="username" type="text" placeholder="Username">
+        </div>
+        <div class="form-row">
+          <input formControlName="password" type="password" placeholder="Password">
+          <input formControlName="phoneNumber" type="tel" placeholder="Phone Number">
+        </div>
+        <div class="form-row">
+          <input formControlName="age" type="number" placeholder="Age">
+          <input formControlName="birthdate" type="date" placeholder="Birthdate">
+        </div>
+        <div class="form-row">
+          <input formControlName="hobbies" type="text" placeholder="Hobbies">
+          <input formControlName="nationality" type="text" placeholder="Nationality">
+        </div>
+        <div class="form-row">
+          <input formControlName="weight" type="number" placeholder="Weight (kg)">
+          <input formControlName="height" type="number" placeholder="Height (cm)">
+        </div>
+        <button type="submit" class="button">Sign Up</button>
+      </form>
+
+      <div class="signup">
+        <span class="signup">Already have an account?
+          <label for="check"><a routerLink="/login">Login</a></label>
+        </span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

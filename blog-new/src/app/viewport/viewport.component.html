@@ -1,0 +1,619 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Author's Blog</title>
+  <link rel="stylesheet" href="viewport.component.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <style>
+    .cover-photo {
+      width: 100%;
+      height: 450px;
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+      position: relative;
+      background-image: url('path/to/default/cover-image.jpg'); 
+    }
+
+    .cover-photo img {
+      display: none; 
+    }
+
+    .cover-photo[style] {
+      background-image: none;
+    }
+
+    .cover-edit-btn {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      background-color: rgba(255, 255, 255, 0.7);
+      border: none;
+      border-radius: 50%;
+      padding: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .cover-edit-btn:hover {
+      background-color: rgba(255, 255, 255, 0.9);
+    }
+
+    .profile-container {
+      display: flex;
+      align-items: flex-start;
+      padding: 1rem;
+    }
+
+    .profile-picture-container {
+      position: relative;
+      width: 150px;
+      height: 150px;
+      margin-right: 1rem;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 5px solid white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .profile-picture {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .profile-edit-btn {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      padding: 10px;
+      cursor: pointer;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .profile-picture-container:hover .profile-edit-btn {
+      opacity: 1;
+    }
+
+    .author-details {
+      position: relative;
+      flex: 1;
+      background-color: #fff;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    .author-name {
+      color: #e07a5f;
+      margin-bottom: 0.5rem;
+      font-size: 2rem;
+    }
+
+    .author-info {
+      color: #666;
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+
+    .blogImg {
+      max-width: 500px;
+      max-height: 600px;
+      min-width: 500px;
+      min-height: 600px;
+      overflow: hidden;
+    }
+
+    .blogImg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container" *ngIf="Blogs.user">
+    <div class="cover-photo" >
+      <img class="profile-picture" [src]="baseAPI + Blogs.user.cover" alt="Profile Picture">
+      <h1 class="blog-title">{{ Blogs.user.firstname }}'s Blog</h1>
+    </div>
+
+    <div class="profile-picture-container">
+      <img class="profile-picture" [src]="baseAPI + Blogs.user.pfp" alt="Profile Picture">
+    </div>
+
+    <div class="author-section">
+      <div class="author-details">
+        <h2 class="author-name">{{ Blogs.user.username }}</h2>
+        <p class="author-info">
+          {{ Blogs.user.firstname }} {{ Blogs.user.lastname }} is currently {{ Blogs.user.age }} years old. 
+          Born on {{ Blogs.user.birthdate | date:'MMMM d, yyyy' }}, they are from {{ Blogs.user.nationality }}. 
+          Standing {{ Blogs.user.height }} cm tall and weighing {{ Blogs.user.weight }} kg, they can be reached at {{ Blogs.user.phoneNumber }}. 
+          In their free time, they enjoy {{ Blogs.user.hobbies }}.
+        </p>
+      </div>
+    </div>
+
+    <div class="blog-posts-section">
+      <div class="blog-posts" *ngIf="Blogs.blogs && Blogs.blogs.length > 0">
+        <h2 class="section-title">Blog Posts</h2>
+        <div class="blog-post" *ngFor="let blog of Blogs.blogs">
+          <div *ngIf="blog.blogImg" class="blogImg">
+            <img [src]="baseAPI + blog.blogImg" alt="Blog Image">
+          </div>
+          <div class="blog-post-details">
+            <h3 class="blog-post-title">{{ blog.blogTitle }}</h3>
+            <p class="blog-post-summary">{{ blog.blogDesc }}</p>
+            <p class="blog-post-timestamp">{{ blog.timestamp | date:"medium" }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Author's Blog</title>
+  <link rel="stylesheet" href="viewport.component.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <style>
+    .cover-photo {
+      width: 100%;
+      height: 450px;
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+      position: relative;
+      background-image: url('path/to/default/cover-image.jpg'); 
+    }
+
+    .cover-photo img {
+      display: none; 
+    }
+
+    .cover-photo[style] {
+      background-image: none;
+    }
+
+    .profile-container {
+      display: flex;
+      align-items: flex-start;
+      padding: 1rem;
+      margin-top: -75px; /* Adjust margin to overlap the cover photo */
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    .profile-picture-container {
+      position: relative;
+      width: 150px;
+      height: 150px;
+      margin-right: 1rem; /* Space between profile picture and author info */
+      border-radius: 50%;
+      overflow: hidden;
+      border: 5px solid white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .profile-picture {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .author-details {
+      flex: 1;
+      position: relative;
+    }
+
+    .author-name {
+      color: #e07a5f;
+      margin-bottom: 0.5rem;
+      font-size: 2rem;
+    }
+
+    .author-info {
+      color: #666;
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+
+    .blogImg {
+      max-width: 500px;
+      max-height: 600px;
+      min-width: 500px;
+      min-height: 600px;
+      overflow: hidden;
+    }
+
+    .blogImg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+
+    <div class="container" *ngIf="Blogs.user">
+        <div class="cover-photo" [ngStyle]="{'background-image': 'url(' + (Blogs.user.cover ? baseAPI + Blogs.user.cover : 'path/to/default/cover-image.jpg') + ')'}">
+        </div>
+
+    <div class="profile-container">
+      <div class="profile-picture-container">
+        <img class="profile-picture" [src]="baseAPI + Blogs.user.pfp" alt="Profile Picture">
+      </div>
+
+      <div class="author-details">
+        <h2 class="author-name">{{ Blogs.user.username }}</h2>
+        <p class="author-info">
+          {{ Blogs.user.firstname }} {{ Blogs.user.lastname }} is currently {{ Blogs.user.age }} years old. 
+          Born on {{ Blogs.user.birthdate | date:'MMMM d, yyyy' }}, they are from {{ Blogs.user.nationality }}. 
+          Standing {{ Blogs.user.height }} cm tall and weighing {{ Blogs.user.weight }} kg, they can be reached at {{ Blogs.user.phoneNumber }}. 
+          In their free time, they enjoy {{ Blogs.user.hobbies }}.
+        </p>
+      </div>
+    </div>
+
+    <div class="blog-posts-section">
+      <div class="blog-posts" *ngIf="Blogs.blogs && Blogs.blogs.length > 0">
+        <h2 class="section-title">Blog Posts</h2>
+        <div class="blog-post" *ngFor="let blog of Blogs.blogs">
+          <div *ngIf="blog.blogImg" class="blogImg">
+            <img [src]="baseAPI + blog.blogImg" alt="Blog Image">
+          </div>
+          <div class="blog-post-details">
+            <h3 class="blog-post-title">{{ blog.blogTitle }}</h3>
+            <p class="blog-post-summary">{{ blog.blogDesc }}</p>
+            <p class="blog-post-timestamp">{{ blog.timestamp | date:"medium" }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html> -->
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Author's Blog</title>
+  <link rel="stylesheet" href="viewport.component.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <div class="container" *ngIf="Blogs.user">
+    <div class="cover-photo" [ngStyle]="{'background-image': 'url(' + (Blogs.user.cover ? baseAPI + Blogs.user.cover : 'path/to/default/cover-image.jpg') + ')'}">
+    </div>
+
+    <div class="profile-container">
+      <div class="profile-picture-container">
+        <img class="profile-picture" [src]="baseAPI + Blogs.user.pfp" alt="Profile Picture">
+      </div>
+
+      <div class="author-details">
+        <h2 class="author-name">{{ Blogs.user.username }}</h2>
+        <p class="author-info">
+          {{ Blogs.user.firstname }} {{ Blogs.user.lastname }} is currently {{ Blogs.user.age }} years old. 
+          Born on {{ Blogs.user.birthdate | date:'MMMM d, yyyy' }}, they are from {{ Blogs.user.nationality }}. 
+          Standing {{ Blogs.user.height }} cm tall and weighing {{ Blogs.user.weight }} kg, they can be reached at {{ Blogs.user.phoneNumber }}. 
+          In their free time, they enjoy {{ Blogs.user.hobbies }}.
+        </p>
+      </div>
+    </div>
+
+    <div class="blog-posts-section">
+      <div class="blog-posts" *ngIf="Blogs.blogs && Blogs.blogs.length > 0">
+        <h2 class="section-title">Blog Posts</h2>
+        <div class="blog-post" *ngFor="let blog of Blogs.blogs">
+          <div *ngIf="blog.blogImg" class="blogImg">
+            <img [src]="baseAPI + blog.blogImg" alt="Blog Image">
+          </div>
+          <div class="blog-post-details">
+            <h3 class="blog-post-title">{{ blog.blogTitle }}</h3>
+            <p class="blog-post-summary">{{ blog.blogDesc }}</p>
+            <p class="blog-post-timestamp">{{ blog.timestamp | date:"medium" }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html> -->
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Author's Blog</title>
+  <link rel="stylesheet" href="viewport.component.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <div class="container" *ngIf="Blogs.user">
+    <div class="cover-photo" [ngStyle]="{'background-image': 'url(' + (Blogs.user.cover ? baseAPI + Blogs.user.cover : 'path/to/default/cover-image.jpg') + ')'}">
+    </div>
+
+    <div class="profile-container">
+      <div class="profile-picture-container">
+        <img class="profile-picture" [src]="baseAPI + Blogs.user.pfp" alt="Profile Picture">
+      </div>
+
+      <div class="author-details">
+        <h2 class="author-name">{{ Blogs.user.username }}</h2>
+        <p class="author-info">
+          {{ Blogs.user.firstname }} {{ Blogs.user.lastname }} is currently {{ Blogs.user.age }} years old. 
+          Born on {{ Blogs.user.birthdate | date:'MMMM d, yyyy' }}, they are from {{ Blogs.user.nationality }}. 
+          Standing {{ Blogs.user.height }} cm tall and weighing {{ Blogs.user.weight }} kg, they can be reached at {{ Blogs.user.phoneNumber }}. 
+          In their free time, they enjoy {{ Blogs.user.hobbies }}.
+        </p>
+      </div>
+    </div>
+
+    <div class="blog-posts-section">
+      <div class="blog-posts" *ngIf="Blogs.blogs && Blogs.blogs.length > 0">
+        <h2 class="section-title">Blog Posts</h2>
+        <div class="blog-post" *ngFor="let blog of Blogs.blogs">
+          <div *ngIf="blog.blogImg" class="blogImg">
+            <img [src]="baseAPI + blog.blogImg" alt="Blog Image">
+          </div>
+          <div class="blog-post-details">
+            <h3 class="blog-post-title">{{ blog.blogTitle }}</h3>
+            <p class="blog-post-summary">{{ blog.blogDesc }}</p>
+            <p class="blog-post-timestamp">{{ blog.timestamp | date:"medium" }}</p>
+            <button (click)="toggleComments(blog)" class="comment-toggle-btn">
+              {{ blog.showComments ? 'Hide Comments' : 'Show Comments' }}
+            </button>
+          </div>
+          <div *ngIf="blog.showComments" class="comments-section">
+            <h4>Comments</h4>
+            <ul class="comments-list">
+              <li *ngFor="let comment of blog.comments">
+                <p class="comment-author">{{ comment.author }}</p>
+                <p class="comment-content">{{ comment.content }}</p>
+                <p class="comment-timestamp">{{ comment.timestamp | date:'medium' }}</p>
+              </li>
+            </ul>
+            <form (ngSubmit)="addComment(blog)" class="comment-form">
+              <input type="text" [(ngModel)]="newCommentAuthor" name="author" placeholder="Your Name" required>
+              <textarea [(ngModel)]="newCommentContent" name="content" placeholder="Your Comment" required></textarea>
+              <button type="submit">Add Comment</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Author's Blog</title>
+  <link rel="stylesheet" href="viewport.component.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <div class="container" *ngIf="Blogs.user">
+    <div class="cover-photo" [ngStyle]="{'background-image': 'url(' + (Blogs.user.cover ? baseAPI + Blogs.user.cover : 'path/to/default/cover-image.jpg') + ')'}">
+    </div>
+
+    <div class="profile-container">
+      <div class="profile-picture-container">
+        <img class="profile-picture" [src]="baseAPI + Blogs.user.pfp" alt="Profile Picture">
+      </div>
+
+      <div class="author-details">
+        <h2 class="author-name">{{ Blogs.user.username }}</h2>
+        <p class="author-info">
+          {{ Blogs.user.firstname }} {{ Blogs.user.lastname }} is currently {{ Blogs.user.age }} years old. 
+          Born on {{ Blogs.user.birthdate | date:'MMMM d, yyyy' }}, they are from {{ Blogs.user.nationality }}. 
+          Standing {{ Blogs.user.height }} cm tall and weighing {{ Blogs.user.weight }} kg, they can be reached at {{ Blogs.user.phoneNumber }}. 
+          In their free time, they enjoy {{ Blogs.user.hobbies }}.
+        </p>
+      </div>
+    </div>
+
+    <div class="blog-posts-section">
+      <div class="blog-posts" *ngIf="Blogs.blogs && Blogs.blogs.length > 0">
+        <h2 class="section-title">Blog Posts</h2>
+        <div class="blog-post" *ngFor="let blog of Blogs.blogs">
+          <div *ngIf="blog.blogImg" class="blogImg">
+            <img [src]="baseAPI + blog.blogImg" alt="Blog Image">
+          </div>
+          <div class="blog-post-details">
+            <h3 class="blog-post-title">{{ blog.blogTitle }}</h3>
+            <p class="blog-post-summary">{{ blog.blogDesc }}</p>
+            <p class="blog-post-timestamp">{{ blog.timestamp | date:"medium" }}</p>
+            <button (click)="toggleComments(blog)" class="comment-toggle-btn">
+              {{ blog.showComments ? 'Hide Comments' : 'Show Comments' }}
+            </button>
+          </div>
+          <div *ngIf="blog.showComments" class="comments-section">
+            <h4>Comments</h4>
+            <ul class="comments-list">
+              <li *ngFor="let comment of blog.comments">
+                <p class="comment-author">{{ comment.author }}</p>
+                <p class="comment-content">{{ comment.content }}</p>
+                <p class="comment-timestamp">{{ comment.timestamp | date:'medium' }}</p>
+              </li>
+            </ul>
+            <form (ngSubmit)="addComment(blog)" class="comment-form">
+              <input type="text" [(ngModel)]="newCommentAuthor" name="author" placeholder="Your Name" required>
+              <textarea [(ngModel)]="newCommentContent" name="content" placeholder="Your Comment" required></textarea>
+              <button type="submit">Add Comment</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Author's Blog</title>
+  <link rel="stylesheet" href="viewport.component.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <div class="container" *ngIf="Blogs.user">
+    <div class="cover-photo" [ngStyle]="{'background-image': 'url(' + (Blogs.user.cover ? baseAPI + Blogs.user.cover : 'path/to/default/cover-image.jpg') + ')'}">
+    </div>
+
+    <div class="profile-container">
+      <div class="profile-picture-container">
+        <img class="profile-picture" [src]="baseAPI + Blogs.user.pfp" alt="Profile Picture">
+      </div>
+
+      <div class="author-details">
+        <h2 class="author-name">{{ Blogs.user.username }}</h2>
+        <p class="author-info">
+          {{ Blogs.user.firstname }} {{ Blogs.user.lastname }} is currently {{ Blogs.user.age }} years old. 
+          Born on {{ Blogs.user.birthdate | date:'MMMM d, yyyy' }}, they are from {{ Blogs.user.nationality }}. 
+          Standing {{ Blogs.user.height }} cm tall and weighing {{ Blogs.user.weight }} kg, they can be reached at {{ Blogs.user.phoneNumber }}. 
+          In their free time, they enjoy {{ Blogs.user.hobbies }}.
+        </p>
+      </div>
+    </div>
+
+    <div class="blog-posts-section">
+      <div class="blog-posts" *ngIf="Blogs.blogs && Blogs.blogs.length > 0">
+        <h2 class="section-title">Blog Posts</h2>
+        <div class="blog-post" *ngFor="let blog of Blogs.blogs">
+          <div *ngIf="blog.blogImg" class="blogImg">
+            <img [src]="baseAPI + blog.blogImg" alt="Blog Image">
+          </div>
+          <div class="blog-post-details">
+            <h3 class="blog-post-title ">{{ blog.blogTitle }}</h3>
+            <p class="blog-post-summary">{{ blog.blogDesc }}</p>
+            <p class="blog-post-timestamp">{{ blog.timestamp | date:"medium" }}</p>
+            <button (click)="toggleComments(blog, Blogs.user.userID)" class="comment-toggle-btn">
+              {{ blog.showComments ? 'Hide Comments' : 'Show Comments' }}
+            </button>
+          </div>
+          <div *ngIf="blog.showComments" class="comments-section">
+            <h4>Comments</h4>
+            <ul class="comments-list">
+              <li *ngFor="let comment of comments">
+                
+                <p style="font-weight: 500;" class="comment-content">{{ comment.comment }}</p>
+                <p class="comment-author">{{ comment.author }}</p>
+
+              </li>
+            </ul>
+            <form style="display: flex; width: 100%; justify-content: center;" [formGroup]="applyForm" (ngSubmit)="Insert(blog.blogID, Blogs.user.userID)">
+              <div style="width: 50%; display: flex;" data-mdb-input-init>
+
+                <input  formControlName="commentText" class="form-control input-comment" id="textAreaExample" placeholder="Name" required >
+                <input  formControlName="commentAuthor" class="form-control input-comment" id="textAreaExample" placeholder="Write your comment.." required >
+                <button  [disabled]="!applyForm.valid"  style="margin-left: 10px; margin-bottom: 10px; background-color: #c86647;" type="submit" class="btn btn-primary mt-2">Submit</button>
+
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

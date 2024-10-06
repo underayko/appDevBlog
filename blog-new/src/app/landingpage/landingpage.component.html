@@ -1,0 +1,729 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog Landing Page</title>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="navbar-brand">Book of Auths</div>
+    <a routerLink="/login" class="login-button">Login</a>
+  </nav>
+
+  <div class="container">
+    <h1 class="main-title">Welcome to Author's Blog</h1>
+    <p class="subtitle">Discover the latest updates from our authors!</p>
+
+    <div class="blogs-list">
+      <div *ngFor="let blog of allBlogs" class="blog-card">
+        <img [src]="blog.pfp" alt="{{ blog.username }}'s profile picture" class="author-pfp">
+        <h2 class="blog-title">{{ blog.blogTitle }}</h2>
+        <p class="author-name">{{ blog.firstname }} {{ blog.lastname }}</p>
+        <p class="author-username">{{ blog.username }}</p>
+        <p class="author-info">
+          {{ blog.firstname }} {{ blog.lastname }} is currently {{ blog.age }} years old. 
+          Born on {{ blog.birthdate | date:'MMMM d, yyyy' }}, they are from {{ blog.nationality }}. 
+          Standing {{ blog.height }} cm tall and weighing {{ blog.weight }} kg, they can be reached at {{ blog.phoneNumber }}. 
+          In their free time, they enjoy {{ blog.hobbies }}.
+        </p>
+        <p class="blog-summary">{{ blog.blogDesc | slice:0:150 }}...</p>
+        <p class="blog-timestamp">Posted on: {{ blog.timestamp | date:'medium' }}</p>
+        <a [routerLink]="['/blogs', blog.blogID]" class="read-more">Read more</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html> -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog Landing Page</title>
+  <link rel="stylesheet" href="landingpage.component.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="navbar-brand">Book of Auths</div>
+    <a routerLink="/login" class="login-button">Login</a>
+  </nav>
+
+  <div class="container">
+    <h1 class="main-title">Welcome to Author's Blog</h1>
+    <p class="subtitle">Discover the latest updates from our authors!</p>
+
+    <div class="blogs-list">
+      <div *ngFor="let blog of allBlogs" class="blog-card">
+        <img [src]="blog.pfp" alt="{{ blog.firstname }} {{ blog.lastname }}'s profile picture" class="author-pfp">
+        <h2 class="blog-title">{{ blog.blogTitle }}</h2>
+        <p class="author-name">{{ blog.firstname }} {{ blog.lastname }}</p>
+        <p class="blog-summary">{{ blog.blogDesc | slice:0:150 }}...</p>
+        <p class="blog-timestamp">Posted on: {{ blog.timestamp | date:'medium' }}</p>
+        <a [routerLink]="['/blogs', blog.blogID]" class="read-more">Read more</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html> -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog Landing Page</title>
+  <link rel="stylesheet" href="landingpage.component.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="navbar-brand">Book of Auths</div>
+    <a  routerLink="/login" class="login-button" *ngIf="this.userDetails.userID == null">Login</a>
+  </nav>
+
+  <div class="container">
+    <h1 class="main-title">Welcome to Author's Blog</h1>
+    <p class="subtitle">Discover the latest updates from our authors!</p>
+
+    <div class="search-container">
+      <input type="text" [(ngModel)]="searchTerm" (input)="searchBlogs()" placeholder="Search by author name" class="search-input">
+    </div>
+
+    <div class="blogs-list">
+      <div *ngFor="let blog of filteredBlogs" class="blog-card" [ngClass]="{'highlighted': blog.highlighted}">
+        <img [src]="blog.pfp" alt="{{ blog.firstname }} {{ blog.lastname }}'s profile picture" class="author-pfp">
+        <h2 class="blog-title">{{ blog.blogTitle }}</h2>
+        <p class="author-name">{{ blog.firstname }} {{ blog.lastname }}</p>
+        <p class="blog-summary">{{ blog.blogDesc | slice:0:150 }}...</p>
+        <p class="blog-timestamp">Posted on: {{ blog.timestamp | date:'medium' }}</p>
+        <a [routerLink]="['/gallery', blog.userID]" class="read-more">Read more</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog Landing Page</title>
+  <link rel="stylesheet" href="landingpage.component.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="navbar-brand">Book of Auths</div>
+    <a routerLink="/login" class="login-button" *ngIf="this.userDetails.userID == null">Login</a>
+  </nav>
+
+  <div class="container">
+    <h1 class="main-title">Welcome to Author's Blog</h1>
+    <p class="subtitle">Discover the latest updates from our authors!</p>
+
+    <div class="blogs-container">
+      <div class="text-blogs">
+        <h2>Latest Updates</h2>
+        <ng-container *ngFor="let blog of filteredBlogs">
+          <div class="blog-card text-only" [ngClass]="{'highlighted': blog.highlighted}" *ngIf="!blog.blogImg">
+            <div class="author-info">
+              <img [src]="blog.pfp" alt="{{ blog.firstname }} {{ blog.lastname }}'s profile picture" class="author-pfp">
+              <p class="author-name">{{ blog.firstname }} {{ blog.lastname }}</p>
+            </div>
+            <h3 class="blog-title">{{ blog.blogTitle }}</h3>
+            <p class="blog-summary">{{ blog.blogDesc | slice:0:150 }}...</p>
+            <p class="blog-timestamp">Posted on: {{ blog.timestamp | date:'medium' }}</p>
+            <a [routerLink]="['/gallery', blog.userID]" class="read-more">Read more</a>
+          </div>
+        </ng-container>
+      </div>
+
+      <div class="separator"></div>
+      <div class="image-blogs">
+        <div class="search-container">
+          <h2>Featured Posts</h2>
+          <input type="text" [(ngModel)]="searchTerm" (input)="searchBlogs()" placeholder="Search by author name" class="search-input">
+        </div>
+        <ng-container *ngFor="let blog of filteredBlogs">
+          <div class="blog-card with-image" [ngClass]="{'highlighted': blog.highlighted}" *ngIf="blog.blogImg">
+            <div class="author-info">
+              <img [src]="blog.pfp" alt="{{ blog.firstname }} {{ blog.lastname }}'s profile picture" class="author-pfp">
+              <p class="author-name">{{ blog.firstname }} {{ blog.lastname }}</p>
+            </div>
+            <img [src]="blog.blogImg" alt="Blog image for {{ blog.blogTitle }}" class="blog-image">
+            <div class="blog-content">
+              <h3 class="blog-title">{{ blog.blogTitle }}</h3>
+              <p class="blog-summary">{{ blog.blogDesc | slice:0:150 }}...</p>
+              <p class="blog-timestamp">Posted on: {{ blog.timestamp | date:'medium' }}</p>
+              <a [routerLink]="['/gallery', blog.userID]" class="read-more">Read more</a>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</body>
+</html> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog Landing Page</title>
+  <link rel="stylesheet" href="landingpage.component.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="navbar-brand">Book of Auths</div>
+    <a *ngIf="!userDetails" routerLink="/login" class="auth-button">Login</a>
+    <a *ngIf="userDetails" (click)="logout()" class="auth-button">Logout</a>
+  </nav>
+
+  <div class="container">
+    <h1 class="main-title">Welcome to Author's Blog</h1>
+    <p class="subtitle">Discover the latest updates from our authors!</p>
+
+    <div class="search-container">
+      <input type="text" [(ngModel)]="searchTerm" (input)="searchBlogs()" placeholder="Search by author name" class="search-input">
+    </div>
+
+    <div class="blogs-container">
+      <div class="text-blogs">
+        <h2>Latest Updates</h2>
+        <ng-container *ngFor="let blog of filteredBlogs">
+          <div class="blog-card text-only" [ngClass]="{'highlighted': blog.highlighted}" *ngIf="!blog.blogImg">
+            <div class="author-info">
+              <img [src]="blog.pfp" alt="{{ blog.firstname }} {{ blog.lastname }}'s profile picture" class="author-pfp">
+              <p class="author-name">{{ blog.firstname }} {{ blog.lastname }}</p>
+            </div>
+            <h3 class="blog-title">{{ blog.blogTitle }}</h3>
+            <p class="blog-summary">{{ blog.blogDesc | slice:0:150 }}...</p>
+            <p class="blog-timestamp">Posted on: {{ blog.timestamp | date:'medium' }}</p>
+            <a [routerLink]="['/gallery', blog.userID]" class="read-more">Read more</a>
+          </div>
+        </ng-container>
+      </div>
+
+      <div class="separator"></div>
+
+      <div class="image-blogs">
+        <h2>Featured Posts</h2>
+        <ng-container *ngFor="let blog of filteredBlogs">
+          <div class="blog-card with-image" [ngClass]="{'highlighted': blog.highlighted}" *ngIf="blog.blogImg">
+            <div class="author-info">
+              <img [src]="blog.pfp" alt="{{ blog.firstname }} {{ blog.lastname }}'s profile picture" class="author-pfp">
+              <p class="author-name">{{ blog.firstname }} {{ blog.lastname }}</p>
+            </div>
+            <img [src]="blog.blogImg" alt="Blog image for {{ blog.blogTitle }}" class="blog-image">
+            <div class="blog-content">
+              <h3 class="blog-title">{{ blog.blogTitle }}</h3>
+              <p class="blog-summary">{{ blog.blogDesc | slice:0:150 }}...</p>
+              <p class="blog-timestamp">Posted on: {{ blog.timestamp | date:'medium' }}</p>
+              <a [routerLink]="['/gallery', blog.userID]" class="read-more">Read more</a>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</body>
+</html> -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog Landing Page</title>
+  <link rel="stylesheet" href="landingpage.component.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="navbar-brand">Book of Auths</div>
+    <div class="navbar-right">
+      <ng-container *ngIf="!userDetails">
+        <a routerLink="/login" class="auth-button">Login</a>
+      </ng-container>
+      <ng-container *ngIf="userDetails">
+        <span class="username" [routerLink]="['/gallery', this.userDetails.userID]">{{ userDetails.username }}</span>
+        <a (click)="logout()" class="auth-button">Logout</a>
+      </ng-container>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h1 class="main-title">Welcome to Author's Blog</h1>
+    <p class="subtitle">Discover the latest updates from our authors!</p>
+
+    <div class="search-container">
+      <input type="text" [(ngModel)]="searchTerm" (input)="searchBlogs()" placeholder="Search by author name" class="search-input">
+    </div>
+
+    <div class="blogs-container">
+      <div class="text-blogs">
+        <h2>Latest Updates</h2>
+        <ng-container *ngFor="let blog of filteredBlogs">
+          <div class="blog-card text-only" (click)="viewblog(blog.blogID)" [ngClass]="{'highlighted': blog.highlighted}" *ngIf="!blog.blogImg">
+            <div class="author-info">
+              <img [src]="blog.pfp" alt="{{ blog.firstname }} {{ blog.lastname }}'s profile picture" class="author-pfp">
+              <p class="author-name">{{ blog.firstname }} {{ blog.lastname }}</p>
+            </div>
+            <h3 class="blog-title">{{ blog.blogTitle }}</h3>
+            <p class="blog-summary">{{ blog.blogDesc | slice:0:150 }}...</p>
+            <p class="blog-timestamp">Posted on: {{ blog.timestamp | date:'medium' }}</p>
+            <div *ngIf="this.userDetails" class="div">
+              <a [routerLink]="['/gallery', blog.userID]" class="read-more">Read more</a>
+            </div>
+            <div *ngIf="this.userDetails == null" class="div">
+              <a [routerLink]="['/viewport', blog.userID]" class="read-more">Read more</a>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+
+      <div class="separator"></div>
+
+      <div class="image-blogs">
+        <h2>Featured Posts</h2>
+        <ng-container *ngFor="let blog of filteredBlogs">
+          <div class="blog-card with-image" (click)="viewblog(blog.blogID)" [ngClass]="{'highlighted': blog.highlighted}" *ngIf="blog.blogImg">
+            <div class="author-info">
+              <img [src]="blog.pfp" alt="{{ blog.firstname }} {{ blog.lastname }}'s profile picture" class="author-pfp">
+              <p class="author-name">{{ blog.firstname }} {{ blog.lastname }}</p>
+            </div>
+            <img [src]="blog.blogImg" alt="Blog image for {{ blog.blogTitle }}" class="blog-image">
+            <div class="blog-content">
+              <h3 class="blog-title">{{ blog.blogTitle }}</h3>
+              <p class="blog-summary">{{ blog.blogDesc | slice:0:150 }}...</p>
+              <p class="blog-timestamp">Posted on: {{ blog.timestamp | date:'medium' }}</p>
+              <div *ngIf="this.userDetails" class="div">
+                <a [routerLink]="['/gallery', blog.userID]" class="read-more">Read more</a>
+              </div>
+              <div *ngIf="this.userDetails == null" class="div">
+                <a [routerLink]="['/viewport', blog.userID]" class="read-more">Read more</a>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</body>
+</html> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html> -->
+<!-- <html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog Landing Page</title>
+  <link rel="stylesheet" href="landingpage.component.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="navbar-brand">Book of Auths</div>
+    <div class="navbar-right">
+      <ng-container *ngIf="!userDetails">
+        <a routerLink="/login" class="auth-button">Login</a>
+      </ng-container>
+      <ng-container *ngIf="userDetails">
+        <span class="username" [routerLink]="['/gallery', this.userDetails.userID]">{{ userDetails.username }}</span>
+        <a (click)="logout()" class="auth-button">Logout</a>
+      </ng-container>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h1 class="main-title">Welcome to Author's Blog</h1>
+    <p class="subtitle">Discover the latest updates from our authors!</p>
+
+    <div class="search-container">
+      <input type="text" [(ngModel)]="searchTerm" (input)="searchBlogs()" placeholder="Search by author name" class="search-input">
+    </div>
+
+    <div class="blogs-container">
+      <div class="text-blogs">
+        <h2>Latest Updates</h2>
+        <ng-container *ngFor="let blog of filteredBlogs">
+          <div class="blog-card text-only" (click)="openBlogModal(blog)" [ngClass]="{'highlighted': blog.highlighted}" *ngIf="!blog.blogImg">
+            <div class="author-info">
+              <img [src]="blog.pfp" alt="{{ blog.firstname }} {{ blog.lastname }}'s profile picture" class="author-pfp">
+              <p class="author-name">{{ blog.firstname }} {{ blog.lastname }}</p>
+            </div>
+            <h3 class="blog-title">{{ blog.blogTitle }}</h3>
+            <p class="blog-summary">{{ blog.blogDesc | slice:0:150 }}...</p>
+            <p class="blog-timestamp">Posted on: {{ blog.timestamp | date:'medium' }}</p>
+            <div *ngIf="this.userDetails" class="div">
+              <a [routerLink]="['/gallery', blog.userID]" class="read-more">Read more</a>
+            </div>
+            <div *ngIf="this.userDetails == null" class="div">
+              <a [routerLink]="['/viewport', blog.userID]" class="read-more">Read more</a>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+
+      <div class="separator"></div>
+
+      <div class="image-blogs">
+        <h2>Featured Posts</h2>
+        <ng-container *ngFor="let blog of filteredBlogs">
+          <div class="blog-card with-image" (click)="openBlogModal(blog)" [ngClass]="{'highlighted': blog.highlighted}" *ngIf="blog.blogImg">
+            <div class="author-info">
+              <img [src]="blog.pfp" alt="{{ blog.firstname }} {{ blog.lastname }}'s profile picture" class="author-pfp">
+              <p class="author-name">{{ blog.firstname }} {{ blog.lastname }}</p>
+            </div>
+            <img [src]="blog.blogImg" alt="Blog image for {{ blog.blogTitle }}" class="blog-image">
+            <div class="blog-content">
+              <h3 class="blog-title">{{ blog.blogTitle }}</h3>
+              <p class="blog-summary">{{ blog.blogDesc | slice:0:150 }}...</p>
+              <p class="blog-timestamp">Posted on: {{ blog.timestamp | date:'medium' }}</p>
+              <div *ngIf="this.userDetails" class="div">
+                <a [routerLink]="['/gallery', blog.userID]" class="read-more">Read more</a>
+              </div>
+              <div *ngIf="this.userDetails == null" class="div">
+                <a [routerLink]="['/viewport', blog.userID]" class="read-more">Read more</a>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+
+
+<div *ngIf="selectedBlog" class="modal-overlay" (click)="closeBlogModal()">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <span class="close-button" (click)="closeBlogModal()">&times;</span>
+    <div class="modal-header">
+      <div class="author-info">
+        <img [src]="selectedBlog.pfp" alt="{{ selectedBlog.firstname }} {{ selectedBlog.lastname }}'s profile picture" class="modal-author-pfp">
+        <div>
+          <h2 class="modal-blog-title">{{ selectedBlog.blogTitle }}</h2>
+          <p class="author-name">{{ selectedBlog.firstname }} {{ selectedBlog.lastname }}</p>
+        </div>
+      </div>
+      <p class="blog-timestamp">Posted on: {{ selectedBlog.timestamp | date:'medium' }}</p>
+    </div>
+    <div class="modal-body">
+      <img *ngIf="selectedBlog.blogImg" [src]="selectedBlog.blogImg" alt="Blog image for {{ selectedBlog.blogTitle }}" class="modal-blog-image">
+      <p class="motto"><strong>Motto:</strong> {{ selectedBlog.motto }}</p>
+      <div class="blog-description" [innerHTML]="selectedBlog.blogDesc"></div>
+      <div class="blog-content" [innerHTML]="selectedBlog.blogContent"></div>
+      <a *ngIf="selectedBlog.socMed" [href]="selectedBlog.socMed" target="_blank" class="socmed-link">Follow Author</a>
+    </div>
+  </div>
+</div>
+
+</body>
+</html> -->
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog Landing Page</title>
+  <link rel="stylesheet" href="landingpage.component.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="navbar-brand">Book of Auths</div>
+    <div class="navbar-right">
+      <ng-container *ngIf="!userDetails">
+        <a routerLink="/login" class="auth-button">Login</a>
+      </ng-container>
+      <ng-container *ngIf="userDetails">
+        <span class="username" [routerLink]="['/gallery', this.userDetails.userID]">{{ userDetails.username }}</span>
+        <a (click)="logout()" class="auth-button">Logout</a>
+      </ng-container>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h1 class="main-title">Welcome to Author's Blog</h1>
+    <p class="subtitle">Discover the latest updates from our authors!</p>
+
+    <div class="search-container">
+      <input type="text" [(ngModel)]="searchTerm" (input)="searchBlogs()" placeholder="Search by author name" class="search-input">
+    </div>
+
+    <div class="blogs-container">
+      <div class="text-blogs">
+        <h2>Latest Updates</h2>
+        <ng-container *ngFor="let blog of filteredBlogs">
+          <div class="blog-card text-only" (click)="openBlogModal(blog)" [ngClass]="{'highlighted': blog.highlighted}" *ngIf="!blog.blogImg">
+            <div class="author-info">
+              <img [src]="blog.pfp" alt="{{ blog.firstname }} {{ blog.lastname }}'s profile picture" class="author-pfp">
+              <p class="author-name">{{ blog.firstname }} {{ blog.lastname }}</p>
+            </div>
+            <h3 class="blog-title">{{ blog.blogTitle }}</h3>
+            <p class="blog-summary">{{ blog.blogDesc | slice:0:150 }}...</p>
+            <p class="blog-timestamp">Posted on: {{ blog.timestamp | date:'medium' }}</p>
+            <div *ngIf="this.userDetails" class="div">
+              <a [routerLink]="['/gallery', blog.userID]" class="read-more">Read more</a>
+            </div>
+            <div *ngIf="this.userDetails == null" class="div">
+              <a [routerLink]="['/viewport', blog.userID]" class="read-more">Read more</a>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+
+      <div class="separator"></div>
+
+      <div class="image-blogs">
+        <h2>Featured Posts</h2>
+        <ng-container *ngFor="let blog of filteredBlogs">
+          <div class="blog-card with-image" (click)="openBlogModal(blog)" [ngClass]="{'highlighted': blog.highlighted}" *ngIf="blog.blogImg">
+            <div class="author-info">
+              <img [src]="blog.pfp" alt="{{ blog.firstname }} {{ blog.lastname }}'s profile picture" class="author-pfp">
+              <p class="author-name">{{ blog.firstname }} {{ blog.lastname }}</p>
+            </div>
+            <img [src]="blog.blogImg" alt="Blog image for {{ blog.blogTitle }}" class="blog-image">
+            <div class="blog-content">
+              <h3 class="blog-title">{{ blog.blogTitle }}</h3>
+              <p class="blog-summary">{{ blog.blogDesc | slice:0:150 }}...</p>
+              <p class="blog-timestamp">Posted on: {{ blog.timestamp | date:'medium' }}</p>
+              <div *ngIf="this.userDetails" class="div">
+                <a [routerLink]="['/gallery', blog.userID]" class="read-more">Read more</a>
+              </div>
+              <div *ngIf="this.userDetails == null" class="div">
+                <a [routerLink]="['/viewport', blog.userID]" class="read-more">Read more</a>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+
+
+  <div *ngIf="selectedBlog" class="modal-overlay" (click)="closeBlogModal()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <span class="close-button" (click)="closeBlogModal()">&times;</span>
+      <div class="modal-header">
+        <div class="modal-header-info">
+          <img *ngIf="selectedBlog.pfp" [src]="selectedBlog.pfp" alt="{{ selectedBlog.firstname }} {{ selectedBlog.lastname }}'s profile picture" class="modal-author-pfp">
+          <div>
+            <h2 class="modal-blog-title">{{ selectedBlog.blogTitle }}</h2>
+            <p class="author-name">{{ selectedBlog.firstname }} {{ selectedBlog.lastname }}</p>
+            <p class="blog-timestamp">Posted on: {{ selectedBlog.timestamp | date:'medium' }}</p>
+          </div>
+        </div>
+      </div>
+      <div class="modal-body">
+        <img *ngIf="selectedBlog.blogImg" [src]="selectedBlog.blogImg" alt="Blog image for {{ selectedBlog.blogTitle }}" class="modal-blog-image">
+        <div class="blog-description" [innerHTML]="selectedBlog.blogDesc"></div>
+        <div class="blog-content" [innerHTML]="selectedBlog.blogContent"></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog Landing Page</title>
+  <link rel="stylesheet" href="landingpage.component.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="navbar-brand">Book of Auths</div>
+    <div class="navbar-right">
+      <ng-container *ngIf="!userDetails">
+        <a routerLink="/login" class="auth-button">Login</a>
+      </ng-container>
+      <ng-container *ngIf="userDetails">
+        <span class="username" [routerLink]="['/gallery', this.userDetails.userID]">{{ userDetails.username }}</span>
+        <a (click)="logout()" class="auth-button">Logout</a>
+      </ng-container>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h1 class="main-title">Welcome to Author's Blog</h1>
+    <p class="subtitle">Discover the latest updates from our authors!</p>
+
+    <div class="search-container">
+      <input type="text" [(ngModel)]="searchTerm" (input)="searchBlogs()" placeholder="Search by author name" class="search-input">
+    </div>
+
+    <div class="blogs-container">
+      <div class="text-blogs">
+        <h2>Latest Updates</h2>
+        <ng-container *ngFor="let blog of filteredBlogs">
+          <div class="blog-card text-only" (click)="openBlogModal(blog)" [ngClass]="{'highlighted': blog.highlighted}" *ngIf="!blog.blogImg">
+            <div class="author-info">
+              <img [src]="blog.pfp" alt="{{ blog.firstname }} {{ blog.lastname }}'s profile picture" class="author-pfp">
+              <p class="author-name">{{ blog.firstname }} {{ blog.lastname }}</p>
+            </div>
+            <h3 class="blog-title">{{ blog.blogTitle }}</h3>
+            <p class="blog-summary">{{ blog.blogDesc | slice:0:150 }}...</p>
+            <p class="blog-timestamp">Posted on: {{ blog.timestamp | date:'medium' }}</p>
+            <div *ngIf="this.userDetails" class="div">
+              <a [routerLink]="['/gallery', blog.userID]" class="read-more">Read more</a>
+            </div>
+            <div *ngIf="this.userDetails == null" class="div">
+              <a [routerLink]="['/viewport', blog.userID]" class="read-more">Read more</a>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+
+      <div class="separator"></div>
+
+      <div class="image-blogs">
+        <h2>Featured Posts</h2>
+        <ng-container *ngFor="let blog of filteredBlogs">
+          <div class="blog-card with-image" (click)="openBlogModal(blog)" [ngClass]="{'highlighted': blog.highlighted}" *ngIf="blog.blogImg">
+            <div class="author-info">
+              <img [src]="blog.pfp" alt="{{ blog.firstname }} {{ blog.lastname }}'s profile picture" class="author-pfp">
+              <p class="author-name">{{ blog.firstname }} {{ blog.lastname }}</p>
+            </div>
+            <img [src]="blog.blogImg" alt="Blog image for {{ blog.blogTitle }}" class="blog-image">
+            <div class="blog-content">
+              <h3 class="blog-title">{{ blog.blogTitle }}</h3>
+              <p class="blog-summary">{{ blog.blogDesc | slice:0:150 }}...</p>
+              <p class="blog-timestamp">Posted on: {{ blog.timestamp | date:'medium' }}</p>
+              <div *ngIf="this.userDetails" class="div">
+                <a [routerLink]="['/gallery', blog.userID]" class="read-more">Read more</a>
+              </div>
+              <div *ngIf="this.userDetails == null" class="div">
+                <a [routerLink]="['/viewport', blog.userID]" class="read-more">Read more</a>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div *ngIf="selectedBlog" class="modal-overlay" (click)="closeBlogModal()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <span class="close-button" (click)="closeBlogModal()">&times;</span>
+      <div class="modal-header">
+        <div class="modal-header-info">
+          <img *ngIf="selectedBlog.pfp" [src]="selectedBlog.pfp" alt="{{ selectedBlog.firstname }} {{ selectedBlog.lastname }}'s profile picture" class="modal-author-pfp">
+          <div>
+            <h2 class="modal-blog-title">{{ selectedBlog.blogTitle }}</h2>
+            <p class="author-name">{{ selectedBlog.firstname }} {{ selectedBlog.lastname }}</p>
+            <p class="blog-timestamp">Posted on: {{ selectedBlog.timestamp | date:'medium' }}</p>
+          </div>
+        </div>
+      </div>
+      <div class="modal-body">
+        <img *ngIf="selectedBlog.blogImg" [src]="selectedBlog.blogImg" alt="Blog image for {{ selectedBlog.blogTitle }}" class="modal-blog-image">
+        <div class="blog-description">
+          <label for="blogDesc">Description:</label>
+          <div [innerHTML]="selectedBlog.blogDesc"></div>
+        </div>
+        <div class="blog-content">
+          <label for="blogContent">Content:</label>
+          <div [innerHTML]="selectedBlog.blogContent"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+
+

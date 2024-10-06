@@ -1,0 +1,555 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Author's Blog</title>
+  <link rel="stylesheet" href="gallery.component.css">
+</head>
+<body>
+  <nav class="navbar">
+    <a href="#" class="logo">BlogName</a>
+    <button class="btn-settings" (click)="routeToCreateBLog()">Create Blog</button>
+  </nav>
+
+  <div class="container" *ngIf="Blogs.user">
+    <div class="author-section">
+      <div class="author-avatar" [ngStyle]="{'background-image': Blogs.user.avatarUrl ? 'url(' + Blogs.user.avatarUrl + ')' : 'url(https://www.pikpng.com/pngl/m/16-168770_user-iconset-no-profile-picture-icon-circle-clipart.png)'}"></div>
+      <div class="author-details">
+        <h2 class="author-name">{{ Blogs.user.username }}</h2>
+        <p class="author-fullname">{{ Blogs.user.firstname }} {{ Blogs.user.lastname }}</p>
+        <p class="author-email">{{ Blogs.user.email }}</p>
+      </div>
+    </div>
+
+    <div class="blog-posts" *ngIf="Blogs.blogs && Blogs.blogs.length > 0">
+      <div class="blog-post" *ngFor="let blog of Blogs.blogs">
+        <div class="blog-post-details">
+          <h3 class="blog-post-title">Title: {{ blog.blogTitle }}</h3>
+          <p class="blog-post-summary">{{ blog.blogDesc }}</p>
+          <p class="blog-post-timestamp">{{ blog.timestamp | date:"short" }}</p>
+          <button (click)="Edit(blog.blogID)" class="button edit-button">Edit</button>
+          <button class="button delete-button">Delete</button>
+          <div class="read-more">
+            <a href="#">Read more</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" [ngClass]="{'show': isModalOpen}" (click)="closeModal()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <span class="close" (click)="closeModal()">&times;</span>
+
+      <form [formGroup]="applyForm" (ngSubmit)="editBlog()">
+        <div class="form-outline mb-2">
+          <input type="hidden" formControlName="blogID" value="{{blogData.blogID}}">
+          <label for="blogTitle">Blog Title</label>
+          <input formControlName="blogTitle" type="text" value="{{blogData.blogTitle}}">
+          <div class="mb-3">
+            <label for="blogDesc" class="form-label">Your Blog</label>
+            <textarea formControlName="blogDesc" class="form-control" value="{{blogData.blogDesc}}" id="blogDesc" rows="3"></textarea>
+          </div>
+        </div>
+        <div class="form-actions">
+          <button (click)="routeToGallery()" class="btn btn-secondary">Cancel</button>
+          <button type="submit" class="btn btn-success">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html> -->
+
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Author's Blog</title>
+  <link rel="stylesheet" href="gallery.component.css">
+</head>
+<body>
+  <nav class="navbar">
+    <a href="#" class="logo">Logout</a>
+    <button class="btn-settings" (click)="routeToCreateBLog()">Create Blog</button>
+  </nav>
+
+  <div class="container" *ngIf="Blogs.user">
+    <div class="author-section">
+      <div class="author-avatar" [ngStyle]="{'background-image': Blogs.user.avatarUrl ? 'url(' + Blogs.user.avatarUrl + ')' : 'url(https://www.pikpng.com/pngl/m/16-168770_user-iconset-no-profile-picture-icon-circle-clipart.png)'}"></div>
+      <div class="author-details">
+        <h2 class="author-name">{{ Blogs.user.username }}</h2>
+        <p class="author-fullname">{{ Blogs.user.firstname }} {{ Blogs.user.lastname }}</p>
+        <p class="author-email">{{ Blogs.user.email }}</p>
+      </div>
+    </div>
+
+    <div class="blog-posts" *ngIf="Blogs.blogs && Blogs.blogs.length > 0">
+      <div class="blog-post" *ngFor="let blog of Blogs.blogs">
+        <div class="blog-post-details">
+          <h3 class="blog-post-title">Title: {{ blog.blogTitle }}</h3>
+          <p class="blog-post-summary">{{ blog.blogDesc }}</p>
+          <p class="blog-post-timestamp">{{ blog.timestamp | date:"short" }}</p>
+          <button (click)="Edit(blog.blogID)" class="button edit-button">Edit</button>
+          <button (click)="deleteBlog(blog.blogID)" class="button delete-button">Delete</button>
+          <div class="read-more">
+            <a href="#">Read more</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" [ngClass]="{'show': isModalOpen}" (click)="closeModal()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <span class="close" (click)="closeModal()">&times;</span>
+
+      <form [formGroup]="applyForm" (ngSubmit)="editBlog()">
+        <div class="form-outline mb-2">
+          <input type="hidden" formControlName="blogID" value="{{blogData.blogID}}">
+          <label for="blogTitle">Blog Title</label>
+          <input formControlName="blogTitle" type="text" value="{{blogData.blogTitle}}">
+          <div class="mb-3">
+            <label for="blogDesc" class="form-label">Your Blog</label>
+            <textarea formControlName="blogDesc" class="form-control" value="{{blogData.blogDesc}}" id="blogDesc" rows="3"></textarea>
+          </div>
+        </div>
+        <div class="form-actions">
+          <button (click)="routeToGallery()" class="btn btn-secondary">Cancel</button>
+          <button type="submit" class="btn btn-success">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html> -->
+
+
+
+
+
+
+
+
+
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Author's Blog</title>
+  <link rel="stylesheet" href="gallery.component.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <nav class="navbar">
+    <button class="btn-logout"><i class="fas fa-sign-out-alt"></i></button>
+  </nav>
+
+  <div class="container" *ngIf="Blogs.user">
+    <div class="cover-photo" [ngStyle]="{'background-image': 'url(' + (Blogs.user.coverPhotoUrl || 'https://artisanhd.com/wp-content/uploads/2018/08/landscape-photography-blog-main-artisanhd.jpg') + ')'}">
+      <h1 class="blog-title">{{ Blogs.user.firstname }}'s Blog</h1>
+    </div>
+
+    <div class="author-section">
+      <div class="author-details">
+        <h2 class="author-name">{{ Blogs.user.username }}</h2>
+        <p class="author-info">
+          {{ Blogs.user.firstname }} {{ Blogs.user.lastname }} is currently {{ Blogs.user.age }} years old. 
+          Born on {{ Blogs.user.birthdate | date:'MMMM d, yyyy' }}, they are from {{ Blogs.user.nationality }}. 
+          Standing {{ Blogs.user.height }} cm tall and weighing {{ Blogs.user.weight }} kg, they can be reached at {{ Blogs.user.phoneNumber }}. 
+          In their free time, they enjoy {{ Blogs.user.hobbies }}.
+        </p>
+      </div>
+    </div>
+
+    <div class="blog-posts" *ngIf="Blogs.blogs && Blogs.blogs.length > 0">
+      <h2 class="section-title">Blog Posts</h2>
+      <button class="btn-create" (click)="routeToCreateBLog()">Add Post</button>
+      <div class="blog-post" *ngFor="let blog of Blogs.blogs">
+        <div class="blog-post-details">
+          <h3 class="blog-post-title">{{ blog.blogTitle }}</h3>
+          <p class="blog-post-summary">{{ blog.blogDesc }}</p>
+          <p class="blog-post-timestamp">{{ blog.timestamp | date:"medium" }}</p>
+          <div class="blog-actions">
+            <button (click)="Edit(blog.blogID)" class="button edit-button">Edit</button>
+            <button (click)="deleteBlog(blog.blogID)" class="button delete-button">Delete</button>
+            <a href="#" class="read-more">Read more</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" [ngClass]="{'show': isModalOpen}" (click)="closeModal()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <span class="close" (click)="closeModal()">&times;</span>
+
+      <form [formGroup]="applyForm" (ngSubmit)="editBlog()">
+        <div class="form-outline mb-2">
+          <input type="hidden" formControlName="blogID" value="{{blogData.blogID}}">
+          <label for="blogTitle">Blog Title</label>
+          <input formControlName="blogTitle" type="text" value="{{blogData.blogTitle}}">
+          <div class="mb-3">
+            <label for="blogDesc" class="form-label">Your Blog</label>
+            <textarea formControlName="blogDesc" class="form-control" value="{{blogData.blogDesc}}" id="blogDesc" rows="3"></textarea>
+          </div>
+        </div>
+        <div class="form-actions">
+          <button (click)="routeToGallery()" class="btn btn-secondary">Cancel</button>
+          <button type="submit" class="btn btn-success">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html> -->
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Author's Blog</title>
+  <link rel="stylesheet" href="gallery.component.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <style>
+    .cover-photo {
+      position: relative;
+    }
+    .cover-edit-btn {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      background-color: rgba(255, 255, 255, 0.7);
+      border: none;
+      border-radius: 50%;
+      padding: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .cover-edit-btn:hover {
+      background-color: rgba(255, 255, 255, 0.9);
+    }
+    .profile-picture-container {
+      position: relative;
+      width: 150px;
+      height: 150px;
+      margin: -75px auto 20px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 5px solid white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .profile-picture {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .profile-edit-btn {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      padding: 10px;
+      cursor: pointer;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .profile-picture-container:hover .profile-edit-btn {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <button class="btn-logout"><i class="fas fa-sign-out-alt"></i></button>
+  </nav>
+
+  <div class="container" *ngIf="Blogs.user">
+    <div class="cover-photo" [ngStyle]="{'background-image': 'url(' + (Blogs.user.coverPhotoUrl || 'https://artisanhd.com/wp-content/uploads/2018/08/landscape-photography-blog-main-artisanhd.jpg') + ')'}">
+      <h1 class="blog-title">{{ Blogs.user.firstname }}'s Blog</h1>
+      <button class="cover-edit-btn" (click)="editCoverPhoto()">
+        <i class="fas fa-edit"></i>
+      </button>
+    </div>
+
+    <div class="profile-picture-container">
+      <img class="profile-picture" [src]="Blogs.user.profilePictureUrl || 'https://via.placeholder.com/150'" alt="Profile Picture">
+      <button class="profile-edit-btn" (click)="editProfilePicture()">
+        <i class="fas fa-edit"></i>
+      </button>
+    </div>
+
+    <div class="author-section">
+      <div class="author-details">
+        <h2 class="author-name">{{ Blogs.user.username }}</h2>
+        <p class="author-info">
+          {{ Blogs.user.firstname }} {{ Blogs.user.lastname }} is currently {{ Blogs.user.age }} years old. 
+          Born on {{ Blogs.user.birthdate | date:'MMMM d, yyyy' }}, they are from {{ Blogs.user.nationality }}. 
+          Standing {{ Blogs.user.height }} cm tall and weighing {{ Blogs.user.weight }} kg, they can be reached at {{ Blogs.user.phoneNumber }}. 
+          In their free time, they enjoy {{ Blogs.user.hobbies }}.
+        </p>
+      </div>
+    </div>
+
+    <div class="blog-posts" *ngIf="Blogs.blogs && Blogs.blogs.length > 0">
+      <h2 class="section-title">Blog Posts</h2>
+      <button class="btn-create" (click)="routeToCreateBLog()">Add Post</button>
+      <div class="blog-post" *ngFor="let blog of Blogs.blogs">
+        <div class="blog-post-details">
+          <h3 class="blog-post-title">{{ blog.blogTitle }}</h3>
+          <p class="blog-post-summary">{{ blog.blogDesc }}</p>
+          <p class="blog-post-timestamp">{{ blog.timestamp | date:"medium" }}</p>
+          <div class="blog-actions">
+            <button (click)="Edit(blog.blogID)" class="button edit-button">Edit</button>
+            <button (click)="deleteBlog(blog.blogID)" class="button delete-button">Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" [ngClass]="{'show': isModalOpen}" (click)="closeModal()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <span class="close" (click)="closeModal()">&times;</span>
+
+      <form [formGroup]="applyForm" (ngSubmit)="editBlog()">
+        <div class="form-outline mb-2">
+          <input type="hidden" formControlName="blogID" value="{{blogData.blogID}}">
+          <label for="blogTitle">Blog Title</label>
+          <input formControlName="blogTitle" type="text" value="{{blogData.blogTitle}}">
+          <div class="mb-3">
+            <label for="blogDesc" class="form-label">Your Blog</label>
+            <textarea formControlName="blogDesc" class="form-control" value="{{blogData.blogDesc}}" id="blogDesc" rows="3"></textarea>
+          </div>
+        </div>
+        <div class="form-actions">
+          <button (click)="routeToGallery()" class="btn btn-secondary">Cancel</button>
+          <button type="submit" class="btn btn-success">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html> -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Author's Blog</title>
+  <link rel="stylesheet" href="profile.component.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <style>
+    /* Existing styles */
+    
+    .cover-photo {
+      position: relative;
+    }
+    .cover-edit-btn {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      background-color: rgba(255, 255, 255, 0.7);
+      border: none;
+      border-radius: 50%;
+      padding: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .cover-edit-btn:hover {
+      background-color: rgba(255, 255, 255, 0.9);
+    }
+    .profile-picture-container {
+      position: relative;
+      width: 150px;
+      height: 150px;
+      margin: -75px auto 20px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 5px solid white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .profile-picture {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .profile-edit-btn {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      padding: 10px;
+      cursor: pointer;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .profile-picture-container:hover .profile-edit-btn {
+      opacity: 1;
+    }
+    .blog-posts-section {
+      margin-top: 20px;
+    }
+    .no-posts-message {
+      text-align: center;
+      margin: 20px 0;
+      font-style: italic;
+      color: #666;
+    }
+    
+    /* New styles */
+    
+    .add-post-section {
+      text-align: right; /* Aligns content to the right */
+      margin: 20px 0;
+    }
+
+    .btn-create {
+      padding: 10px 20px;
+      position: relative;
+      background-color: transparent; /* No background color */
+      color: #e07a5f; /* Text color */
+      border: 2px solid #e07a5f; /* Orange border color */
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s, color 0.3s; /* Added color transition */
+    }
+
+    .btn-create:hover {
+      background-color: #e07a5f; /* Orange background on hover */
+      color: white; /* Ensure text remains white on hover */
+    }
+
+    .top-left-corner {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      z-index: 1000;
+    }
+
+    .btn-logout {
+      background-color: #e07a5f;
+      border: none;
+      color: white;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .btn-logout:hover {
+      background-color: #d87a5f;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="top-left-corner">
+    <button routerLink="/login" class="btn-logout"><i class="fas fa-sign-out-alt"></i> Logout</button>
+    <button routerLink="/landingpage" style="margin-left: 15px;" class="btn-logout"><i class="fas fa-sign-out-alt"></i>Blogs</button>
+  </div>
+
+  <div class="container" *ngIf="Blogs.user">
+    <img  [src]="baseAPI + Blogs.user.cover" alt="">
+    <!-- <img  [src]="baseAPI + Blogs.user.pfp" alt=""> -->
+    <div class="cover-photo" [ngStyle]="{'background-image': 'url(' + (Blogs.user.cover || 'https://artisanhd.com/wp-content/uploads/2018/08/landscape-photography-blog-main-artisanhd.jpg') + ')'}">
+      <h1 class="blog-title">{{ Blogs.user.firstname }}'s Blog</h1>
+      <button class="cover-edit-btn" (click)="editCoverPhoto()">
+        <i class="fas fa-edit"></i>
+      </button>
+    </div>
+
+    <div class="profile-picture-container">
+      <img class="profile-picture" [src]="baseAPI + Blogs.user.pfp" alt="Profile Picture">
+      <button class="profile-edit-btn" (click)="editProfilePicture()">
+        <i class="fas fa-edit"></i>
+      </button>
+    </div>
+
+    <div class="author-section">
+      <div class="author-details">
+        <h2 class="author-name">{{ Blogs.user.username }}</h2>
+        <p class="author-info">
+          {{ Blogs.user.firstname }} {{ Blogs.user.lastname }} is currently {{ Blogs.user.age }} years old. 
+          Born on {{ Blogs.user.birthdate | date:'MMMM d, yyyy' }}, they are from {{ Blogs.user.nationality }}. 
+          Standing {{ Blogs.user.height }} cm tall and weighing {{ Blogs.user.weight }} kg, they can be reached at {{ Blogs.user.phoneNumber }}. 
+          In their free time, they enjoy {{ Blogs.user.hobbies }}.
+        </p>
+      </div>
+    </div>
+
+    <div class="add-post-section">
+      <button *ngIf="userDetails.userID == Blogs.user.userID" class="btn-create" (click)="routeToCreateBLog()">Add Post</button>
+    </div>
+
+    <div class="blog-posts-section">
+      <div class="blog-posts" *ngIf="Blogs.blogs && Blogs.blogs.length > 0">
+        <h2 class="section-title">Blog Posts</h2>
+        <div class="blog-post" *ngFor="let blog of Blogs.blogs">
+          <div class="blog-post-details">
+            <h3 class="blog-post-title">{{ blog.blogTitle }}</h3>
+            <p class="blog-post-summary">{{ blog.blogDesc }}</p>
+            <p class="blog-post-timestamp">{{ blog.timestamp | date:"medium" }}</p>
+            <div class="blog-actions">
+              <button *ngIf="userDetails.userID == Blogs.user.userID" (click)="Edit(blog.blogID)" class="button edit-button">Edit</button>
+              <button *ngIf="userDetails.userID == Blogs.user.userID" (click)="deleteBlog(blog.blogID)" class="button delete-button">Delete</button>
+              <button *ngIf="userDetails.userID == Blogs.user.userID" (click)="editfeaturedPicture()"  class="button delete-button">Add featured photo</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Removed no-posts-message section -->
+    </div>
+  </div>
+
+  <div class="modal" [ngClass]="{'show': isModalOpen}" (click)="closeModal()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <span class="close" (click)="closeModal()">&times;</span>
+
+      <form [formGroup]="applyForm" (ngSubmit)="editBlog()">
+        <div class="form-outline mb-2">
+          <input type="hidden" formControlName="blogID" value="{{blogData.blogID}}">
+          <label for="blogTitle">Blog Title</label>
+          <input formControlName="blogTitle" type="text" value="{{blogData.blogTitle}}">
+          <div class="mb-3">
+            <label for="blogDesc" class="form-label">Your Blog</label>
+            <textarea formControlName="blogDesc" class="form-control" value="{{blogData.blogDesc}}" id="blogDesc" rows="3"></textarea>
+          </div>
+        </div>
+        <div class="form-actions">
+          <button (click)="routeToGallery()" class="btn btn-secondary">Cancel</button>
+          <button type="submit" class="btn btn-success">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

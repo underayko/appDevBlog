@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Author's Blog</title>
+  <link rel="stylesheet" href="viewblog.component.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <div class="container" *ngIf="Blogs.user">
+    <div class="cover-photo" [ngStyle]="{'background-image': 'url(' + (Blogs.user.cover ? baseAPI + Blogs.user.cover : 'path/to/default/cover-image.jpg') + ')'}">
+    </div>
+
+    <div class="profile-container">
+      <div class="profile-picture-container">
+        <img class="profile-picture" [src]="baseAPI + Blogs.user.pfp" alt="Profile Picture">
+      </div>
+
+      <div class="author-details">
+        <h2 class="author-name">{{ Blogs.user.username }}</h2>
+        <p class="author-info">
+          {{ Blogs.user.firstname }} {{ Blogs.user.lastname }} is currently {{ Blogs.user.age }} years old. 
+          Born on {{ Blogs.user.birthdate | date:'MMMM d, yyyy' }}, they are from {{ Blogs.user.nationality }}. 
+          Standing {{ Blogs.user.height }} cm tall and weighing {{ Blogs.user.weight }} kg, they can be reached at {{ Blogs.user.phoneNumber }}. 
+          In their free time, they enjoy {{ Blogs.user.hobbies }}.
+        </p>
+      </div>
+    </div>
+
+    <div class="blog-posts-section">
+      <div class="blog-posts" *ngIf="Blogs.blogs && Blogs.blogs.length > 0">
+        <h2 class="section-title">Blog Posts</h2>
+        <div class="blog-post" *ngFor="let blog of Blogs.blogs">
+          <div *ngIf="blog.blogImg" class="blogImg">
+            <img [src]="baseAPI + blog.blogImg" alt="Blog Image">
+          </div>
+          <div class="blog-post-details">
+            <h3 class="blog-post-title ">{{ blog.blogTitle }}</h3>
+            <p class="blog-post-summary">{{ blog.blogDesc }}</p>
+            <p class="blog-post-timestamp">{{ blog.timestamp | date:"medium" }}</p>
+            <button (click)="toggleComments(blog, Blogs.user.userID)" class="comment-toggle-btn">
+              {{ blog.showComments ? 'Hide Comments' : 'Show Comments' }}
+            </button>
+          </div>
+          <div *ngIf="blog.showComments" class="comments-section">
+            <h4>Comments</h4>
+            <ul class="comments-list">
+              <li *ngFor="let comment of comments">
+                
+                <p style="font-weight: 500;" class="comment-content">{{ comment.comment }}</p>
+                <p class="comment-author">{{ comment.author }}</p>
+
+              </li>
+            </ul>
+            <form style="display: flex; width: 100%; justify-content: center;" [formGroup]="applyForm" (ngSubmit)="Insert(blog.blogID, Blogs.user.userID)">
+              <div style="width: 50%; display: flex;" data-mdb-input-init>
+
+                <input  formControlName="commentText" class="form-control input-comment" id="textAreaExample" placeholder="Name" required >
+                <input  formControlName="commentAuthor" class="form-control input-comment" id="textAreaExample" placeholder="Write your comment.." required >
+                <button  [disabled]="!applyForm.valid"  style="margin-left: 10px; margin-bottom: 10px; background-color: #c86647;" type="submit" class="btn btn-primary mt-2">Submit</button>
+
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
